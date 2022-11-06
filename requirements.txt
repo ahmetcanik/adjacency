@@ -1,0 +1,4 @@
+pandas==1.5.1
+openpyxl==3.0.10
+igraph==0.10.2
+numpy==1.23.4
