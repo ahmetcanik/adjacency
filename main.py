@@ -37,6 +37,8 @@ def generate_adjacency_matrix(input_file, output_file):
             if v1 != v2:
                 adj_dict[v2][v1] += 1
     adj_df = pd.DataFrame(adj_dict)
+    adj_df = adj_df.reindex(sorted(adj_df.columns), axis=1)
+    adj_df = adj_df.sort_index()
     adj_df = adj_df.fillna(0)
     adj_df.to_excel(output_file)
 
