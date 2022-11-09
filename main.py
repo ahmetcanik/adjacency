@@ -33,7 +33,9 @@ def generate_adjacency_matrix(input_file, output_file):
             if v1 not in adj_dict[v2]:
                 adj_dict[v2][v1] = 0
             adj_dict[v1][v2] += 1
-            adj_dict[v2][v1] += 1
+            # do not increase for same nodes
+            if v1 != v2:
+                adj_dict[v2][v1] += 1
     adj_df = pd.DataFrame(adj_dict)
     adj_df = adj_df.fillna(0)
     adj_df.to_excel(output_file)
